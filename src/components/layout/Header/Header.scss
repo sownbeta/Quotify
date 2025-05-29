@@ -5,6 +5,7 @@
     justify-content: space-between;
     position: fixed;
     top: 0;
+    z-index: 1000;
 
     .left-header {
         display: flex;
@@ -12,38 +13,83 @@
         padding-left: 20px;
         margin-top: 0px;
 
-        .logo-header {
-            width: 80px;
+        .logo-link {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
+            text-decoration: none;
 
-        .name-web {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-            font-style: italic;
+            .logo-header {
+                width: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+            }
+
+            .name-web {
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffffff;
+                font-style: italic;
+            }
         }
     }
+
     .right-header {
         display: flex;
         align-items: center;
         margin-right: 50px;
+        
         .link-nav {
             padding: 0px 20px;
-            height: 60%;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: #ffffff;
             font-size: 18px;
+            position: relative;
+            transition: all 0.3s ease;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 3px;
+                background-color: #3498db;
+                transition: width 0.3s ease;
+            }
+
             &:hover {
-                background-color: black;
-                color: #ffffff;
-              }
+                color: #3498db;
+                
+                &::after {
+                    width: 30%;
+                }
+            }
+
+            &.active {
+                color: #3498db;
+
+                &::after {
+                    width: 50%;
+                }
+            }
         }
     }
+}
+
+.custom-caret-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    color: #59a5d8;
+    transform: rotate(-90deg);
+  }
 }

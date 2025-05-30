@@ -605,11 +605,11 @@ const About = () => {
                 </div>
                 <div className="contact-item">
                   <FaEnvelope />
-                  <span>ngocson@example.com</span>
+                  <span>nguyenngocson2003211@gmail.com</span>
                 </div>
                 <div className="contact-item">
                   <FaMapMarkerAlt />
-                  <span>Hanoi, Vietnam</span>
+                  <span>Da Nang, Vietnam</span>
                 </div>
               </div>
               

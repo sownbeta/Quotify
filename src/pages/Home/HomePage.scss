@@ -1,3 +1,5 @@
+@import '../../styles/base/variables';
+
 .home-container {
   width: 100%;
   overflow-x: hidden;
@@ -82,6 +84,11 @@
       max-width: 800px;
       z-index: 2;
       
+      @media (max-width: $breakpoint-mobile) {
+        padding: 1rem;
+        max-width: 100%;
+      }
+      
       h1 {
         font-size: 4rem;
         margin-bottom: 1.5rem;
@@ -108,7 +115,11 @@
           }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 3rem;
+        }
+        
+        @media (max-width: $breakpoint-mobile) {
           font-size: 2.5rem;
         }
       }
@@ -118,6 +129,11 @@
         margin-bottom: 2.5rem;
         color: #e0e0e0;
         line-height: 1.6;
+        
+        @media (max-width: $breakpoint-mobile) {
+          font-size: 1.1rem;
+          margin-bottom: 2rem;
+        }
       }
     }
     
@@ -170,7 +186,25 @@
           animation: float 7s ease-in-out infinite 0.5s;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: $breakpoint-tablet) {
+          padding: 1rem;
+          max-width: 200px;
+          font-size: 0.8rem;
+          
+          &.q1 {
+            left: 5%;
+          }
+          
+          &.q2 {
+            right: 5%;
+          }
+          
+          &.q3 {
+            right: 5%;
+          }
+        }
+        
+        @media (max-width: $breakpoint-mobile) {
           display: none;
         }
       }
@@ -183,11 +217,29 @@
     background-color: #fff;
     text-align: center;
     
+    @media (max-width: $breakpoint-tablet) {
+      padding: 4rem 1.5rem;
+    }
+    
+    @media (max-width: $breakpoint-mobile) {
+      padding: 3rem 1rem;
+    }
+    
     h2 {
       font-size: 2.8rem;
       margin-bottom: 4rem;
       color: #2c3e50;
       position: relative;
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+      }
+      
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+      }
       
       .highlight {
         color: #3498db;
@@ -203,6 +255,12 @@
         height: 4px;
         background-color: #3498db;
         border-radius: 2px;
+        
+        @media (max-width: $breakpoint-mobile) {
+          width: 60px;
+          height: 3px;
+          bottom: -10px;
+        }
       }
     }
     
@@ -213,42 +271,65 @@
       max-width: 1200px;
       margin: 0 auto;
       
+      @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      
+      @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
       .feature-card {
-        background-color: #f8f9fa;
-        padding: 3rem 2rem;
-        border-radius: 20px;
-        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        
+        @media (max-width: $breakpoint-mobile) {
+          padding: 2rem 1.5rem;
+        }
         
         &:hover {
-          transform: translateY(-15px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-          
-          .feature-icon {
-            transform: scale(1.1) rotate(10deg);
-            background-color: #3498db;
-            color: white;
-          }
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
           width: 80px;
           height: 80px;
+          background-color: rgba(52, 152, 219, 0.1);
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto 2rem;
-          font-size: 2.5rem;
-          color: #3498db;
-          background-color: rgba(52, 152, 219, 0.1);
-          border-radius: 50%;
-          transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          margin: 0 auto 1.5rem;
+          
+          @media (max-width: $breakpoint-mobile) {
+            width: 70px;
+            height: 70px;
+          }
+          
+          svg {
+            font-size: 2.5rem;
+            color: #3498db;
+            
+            @media (max-width: $breakpoint-mobile) {
+              font-size: 2rem;
+            }
+          }
         }
         
         h3 {
           font-size: 1.5rem;
           margin-bottom: 1rem;
           color: #2c3e50;
+          
+          @media (max-width: $breakpoint-mobile) {
+            font-size: 1.3rem;
+          }
         }
         
         p {
@@ -261,85 +342,42 @@
   
   // Stats Section
   .stats-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
     gap: 2rem;
-    padding: 5rem 2rem;
-    margin: 0 7rem;
-    background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
-    text-align: center;
-    color: white;
+    
+    @media (max-width: $breakpoint-mobile) {
+      padding: 3rem 1rem;
+      gap: 1.5rem;
+    }
     
     .stat-item {
+      text-align: center;
+      
       .stat-number {
         font-size: 3.5rem;
         font-weight: 700;
-        margin-bottom: 1rem;
-      }
-      
-      p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-      }
-    }
-  }
-  
-  // Testimonial Section
-  .testimonial-section {
-    padding: 6rem 2rem;
-    background-color: #f5f7fa;
-    
-    .testimonial-container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 3rem;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      
-      .quote-icon {
-        font-size: 3rem;
         color: #3498db;
-        margin-bottom: 2rem;
-        opacity: 0.5;
-      }
-      
-      .testimonial-text {
-        font-size: 1.5rem;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        color: #34495e;
-        font-style: italic;
-      }
-      
-      .testimonial-author {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-bottom: 0.5rem;
         
-        .author-avatar {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          background-color: #3498db;
-          margin-right: 1rem;
-          background-image: url('https://randomuser.me/api/portraits/women/44.jpg');
-          background-size: cover;
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 3rem;
         }
         
-        .author-info {
-          text-align: left;
-          
-          h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            color: #2c3e50;
-          }
-          
-          p {
-            color: #7f8c8d;
-          }
+        @media (max-width: $breakpoint-mobile) {
+          font-size: 2.5rem;
+        }
+      }
+      
+      .stat-label {
+        font-size: 1.2rem;
+        color: #7f8c8d;
+        
+        @media (max-width: $breakpoint-mobile) {
+          font-size: 1rem;
         }
       }
     }
@@ -352,9 +390,25 @@
     text-align: center;
     color: #fff;
     
+    @media (max-width: $breakpoint-tablet) {
+      padding: 4rem 1.5rem;
+    }
+    
+    @media (max-width: $breakpoint-mobile) {
+      padding: 3rem 1rem;
+    }
+    
     h2 {
       font-size: 2.8rem;
       margin-bottom: 1.5rem;
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2.4rem;
+      }
+      
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 2rem;
+      }
     }
     
     p {
@@ -364,6 +418,11 @@
       margin-left: auto;
       margin-right: auto;
       opacity: 0.9;
+      
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
     }
     
     .pulse {
@@ -377,16 +436,29 @@
     background-color: #fff;
     text-align: center;
     
+    @media (max-width: $breakpoint-mobile) {
+      padding: 3rem 1rem;
+    }
+    
     h3 {
       font-size: 1.8rem;
       margin-bottom: 2rem;
       color: #2c3e50;
+      
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
     }
     
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 2rem;
+      
+      @media (max-width: $breakpoint-mobile) {
+        gap: 1.5rem;
+      }
       
       .social-icon {
         width: 60px;
@@ -399,6 +471,12 @@
         background-color: rgba(52, 152, 219, 0.1);
         border-radius: 50%;
         transition: all 0.3s ease;
+        
+        @media (max-width: $breakpoint-mobile) {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+        }
         
         &:hover {
           background-color: #3498db;
@@ -425,6 +503,11 @@
     box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
     position: relative;
     overflow: hidden;
+    
+    @media (max-width: $breakpoint-mobile) {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
     
     &::before {
       content: '';

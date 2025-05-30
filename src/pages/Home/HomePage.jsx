@@ -270,7 +270,7 @@ const HomePage = () => {
           <div className="testimonial-author">
             <div className="author-avatar"></div>
             <div className="author-info">
-              <h4>Emily Johnson</h4>
+              <h4>Son Beta</h4>
               <p>Creative Director</p>
             </div>
           </div>

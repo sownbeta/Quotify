@@ -1,3 +1,5 @@
+@import '../../styles/base/variables';
+
 .main-layout {
     min-height: 100vh;
     display: flex;
@@ -7,5 +9,14 @@
         flex: 1;
         width: 100%;
         margin: 0 auto;
+        padding-top: 70px; // Height of header
+        
+        @media (max-width: $breakpoint-mobile) {
+            padding-top: 60px; // Smaller padding for mobile
+        }
+    }
+    
+    .player-content {
+        padding-bottom: 0;
     }
 } 
